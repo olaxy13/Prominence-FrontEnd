@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router';
 
 // Mock data for phones
 const phoneData = [
@@ -14,6 +15,8 @@ const brands = ['Apple', 'Samsung', 'Google', 'OnePlus'];
 
 const Accessories = () => {
   const [selectedBrands, setSelectedBrands] = useState([]);
+
+  const navigate = useNavigate()
 
   const handleBrandChange = (brand) => {
     setSelectedBrands((prev) =>
@@ -51,7 +54,7 @@ const Accessories = () => {
       <main className="flex-1">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {filteredPhones.map((phone) => (
-            <div key={phone.id} className="border border-gray-200 rounded-lg bg-white shadow hover:shadow-lg transition-shadow p-4 flex flex-col items-center text-center">
+            <div onClick={() => navigate(`/products/${phone.id}`)} key={phone.id} className="border border-gray-200 rounded-lg bg-white shadow hover:shadow-lg transition-shadow p-4 flex flex-col items-center text-center cursor-pointer">
               <img src={phone.image} alt={phone.name} className="w-full h-44 object-contain mb-4 rounded" />
               <h4 className="font-semibold text-lg mb-1">{phone.name}</h4>
               <p className="text-gray-500 mb-1">{phone.brand}</p>

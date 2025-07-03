@@ -116,7 +116,7 @@ export default function Products() {
             <div
               key={filteredProduct.id}
               className="border border-gray-200 rounded-lg bg-white shadow hover:shadow-lg transition-shadow p-4 flex flex-col items-center text-center cursor-pointer"
-              onClick={() => navigate(`/product/${filteredProduct.id}`)}
+              onClick={() => navigate(`/products/${filteredProduct.id}`)}
             >
               <img
                 src={filteredProduct.image}

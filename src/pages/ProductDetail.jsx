@@ -1,5 +1,6 @@
 import { useParams } from "react-router";
 import { useState } from "react";
+import { useCart } from "../services/CartContext";
 
 export default function ProductDetail() {
   const { id } = useParams();
@@ -8,10 +9,12 @@ export default function ProductDetail() {
     name: `Product ${id}`,
     price: id * 25000,
     // image: "https://via.placeholder.com/600",
-    image: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1200&q=80",
+    image:
+      "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1200&q=80",
     desc: "Detailed product description.",
   };
   const [qty, setQty] = useState(1);
+  const { addToCart } = useCart();
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-4">
@@ -32,7 +35,10 @@ export default function ProductDetail() {
             onChange={(e) => setQty(e.target.value)}
           />
         </div>
-        <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded">
+        <button
+          className="mt-4 bg-blue-600 text-white px-4 py-2 rounded cursor-pointer"
+          onClick={() => addToCart(product, Number(qty))}
+        >
           Add to Cart
         </button>
       </div>

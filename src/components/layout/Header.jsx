@@ -2,13 +2,11 @@ import { useState, useContext } from "react";
 import { NavLink } from "react-router";
 import Logo from "../../assets/prominence-logo.png";
 import { MdOutlineShoppingCartCheckout } from "react-icons/md";
-// Placeholder for cart context (replace with actual context if available)
-// import { CartContext } from "../../services/CartContext";
+import { useCart } from "../../services/CartContext";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-  // const { cartItems } = useContext(CartContext); // Uncomment if using context
-  const cartCount = 3; // Replace with cartItems.length if using context
+  const { cartCount } = useCart();
 
   const navItems = [
     { to: "/products", label: "Products" },
@@ -58,7 +56,7 @@ export default function Header() {
                 d="M2.25 3h1.386c.51 0 .96.343 1.09.835l.383 1.437M7.5 14.25A3.75 3.75 0 0011.25 18h1.5a3.75 3.75 0 003.75-3.75V6.75A3.75 3.75 0 0012.75 3h-1.5A3.75 3.75 0 007.5 6.75v7.5z"
               />
             </svg> */}
-            <MdOutlineShoppingCartCheckout className="text-[32px]"/>
+            <MdOutlineShoppingCartCheckout className="text-[32px] cursor-pointer" />
             {/* Cart count badge */}
             <span className="absolute -top-1 -right-1 bg-blue-600 text-white text-xs rounded-full px-1.5 py-0.5 min-w-[20px] text-center">
               {cartCount}
