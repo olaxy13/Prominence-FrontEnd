@@ -1,0 +1,2 @@
+@splidejs/react-splide
+@splidejs/splide
