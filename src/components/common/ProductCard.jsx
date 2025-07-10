@@ -4,7 +4,7 @@ export default function ProductCard({ product }) {
     <div className="bg-white group border-none rounded-none overflow-hidden relative transition-transform hover:scale-105">
       <Link to={`/products/${product.id}`} className="block">
         <img
-          src={product.image}
+          src={product.photos[1]}
           alt={product.name}
           className="w-full aspect-[3/4] object-cover group-hover:opacity-90 transition-opacity duration-300"
         />
