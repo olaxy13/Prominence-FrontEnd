@@ -21,7 +21,7 @@ const slides = [
   {
     image:
       "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=1200&q=80",
-    title: "Phone Accessories",
+    title: "Accessories",
     message: "Elevate your wardrobe with timeless pieces.",
     button: "View Classics",
     link: "/products",
@@ -29,7 +29,7 @@ const slides = [
   {
     image:
       "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1200&q=80",
-    title: "Gadget Repairs",
+    title: "Repairs",
     message: "Special deals on select items. Limited time only!",
     button: "See Offers",
     link: "/products",
@@ -52,8 +52,8 @@ export default function HeroBanner() {
           cover: true,
           height: "60vh",
           breakpoints: {
-            768: { height: "40vh" },
-            480: { height: "28vh" },
+            768: { height: "58vh" },
+            480: { height: "48vh" },
           },
         }}
         aria-label="Hero Banner"

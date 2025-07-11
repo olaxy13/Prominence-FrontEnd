@@ -4,7 +4,7 @@ export default function ProductCard({ product }) {
     <div className="bg-white group border-none rounded-none overflow-hidden relative transition-transform hover:scale-105">
       <Link to={`/products/${product.id}`} className="block">
         <img
-          src={product.image}
+          src={product.photos[0]}
           alt={product.name}
           className="w-full aspect-[3/4] object-cover group-hover:opacity-90 transition-opacity duration-300"
         />
@@ -12,7 +12,7 @@ export default function ProductCard({ product }) {
           <h3 className="text-base font-light uppercase tracking-widest mb-1 text-gray-900">
             {product.name}
           </h3>
-          <p className="text-lg font-semibold text-black">₦{product.price}</p>
+          <p className="text-lg font-semibold text-black">₦{Number(product.price).toLocaleString()}</p>
         </div>
       </Link>
     </div>

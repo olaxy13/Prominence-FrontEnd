@@ -13,7 +13,7 @@ export default function Cart() {
         (item, idx) =>
           `${idx + 1}. ${item.name}\n   Qty: ${item.qty}\n   Price: ₦${
             item.price
-          }\n   Desc: ${item.desc}`
+          }\n   Description: ${item.description}`
       )
       .join("\n\n");
     const total = cartItems.reduce(
@@ -31,7 +31,7 @@ export default function Cart() {
     <div className="p-4">
       <button
         className="mb-4 bg-gray-200 text-gray-800 px-4 py-2 rounded hover:bg-gray-300 font-semibold shadow"
-        onClick={() => navigate("/")}
+        onClick={() => navigate(-1)}
       >
         ← Back
       </button>
@@ -47,7 +47,7 @@ export default function Cart() {
                 className="border border-gray-300 p-4 rounded flex items-center gap-4"
               >
                 <img
-                  src={item.image}
+                  src={item.photos[0]}
                   alt={item.name}
                   className="w-20 h-20 object-cover rounded"
                 />
@@ -56,7 +56,7 @@ export default function Cart() {
                   <p>
                     ₦{item.price} x {item.qty}
                   </p>
-                  <p className="text-sm text-gray-500">{item.desc}</p>
+                  <p className="text-sm text-gray-500">{item.description}</p>
                 </div>
                 <button
                   className="ml-4 bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 cursor-pointer"

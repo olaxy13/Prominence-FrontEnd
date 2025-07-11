@@ -1,78 +1,90 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import ProductGrid from "../components/common/ProductGrid";
+import Loader from "../assets/loader.gif";
+import { useQuery } from "@tanstack/react-query";
+import { fetchProducts } from "../services/data";
 
-const MOCK = [
-  {
-    id: 1,
-    name: "iPhone 15",
-    category: "Phones",
-    price: 999,
-    image: "https://m.media-amazon.com/images/I/71d7rfSl0wL._AC_UY218_.jpg",
-  },
-  {
-    id: 2,
-    name: "Galaxy S24",
-    category: "Phones",
-    price: 899,
-    image: "https://m.media-amazon.com/images/I/71qZy8c7QwL._AC_UY218_.jpg",
-  },
-  {
-    id: 3,
-    name: "Pixel 8",
-    category: "Phones",
-    price: 799,
-    image: "https://m.media-amazon.com/images/I/81Qw5Zl+JwL._AC_UY218_.jpg",
-  },
-  {
-    id: 4,
-    name: "MacBook Pro",
-    category: "Laptops",
-    price: 1999,
-    image: "https://m.media-amazon.com/images/I/71an9eiBxpL._AC_UY218_.jpg",
-  },
-  {
-    id: 5,
-    name: "Dell XPS 13",
-    category: "Laptops",
-    price: 1499,
-    image: "https://m.media-amazon.com/images/I/71w4pP5nQWL._AC_UY218_.jpg",
-  },
-  {
-    id: 6,
-    name: "HP Spectre x360",
-    category: "Laptops",
-    price: 1399,
-    image: "https://m.media-amazon.com/images/I/71w4pP5nQWL._AC_UY218_.jpg",
-  },
-  {
-    id: 7,
-    name: "Phone Case",
-    category: "Phone Accessories",
-    price: 29,
-    image: "https://m.media-amazon.com/images/I/61ZbF1V+QwL._AC_UY218_.jpg",
-  },
-  {
-    id: 8,
-    name: "Wireless Charger",
-    category: "Phone Accessories",
-    price: 49,
-    image: "https://m.media-amazon.com/images/I/61ZbF1V+QwL._AC_UY218_.jpg",
-  },
-  {
-    id: 9,
-    name: "Screen Protector",
-    category: "Phone Accessories",
-    price: 19,
-    image: "https://m.media-amazon.com/images/I/61ZbF1V+QwL._AC_UY218_.jpg",
-  },
-];
+// const MOCK = [
+//   {
+//     id: 1,
+//     name: "iPhone 15",
+//     category: "Phones",
+//     price: 999,
+//     image: "https://m.media-amazon.com/images/I/71d7rfSl0wL._AC_UY218_.jpg",
+//   },
+//   {
+//     id: 2,
+//     name: "Galaxy S24",
+//     category: "Phones",
+//     price: 899,
+//     image: "https://m.media-amazon.com/images/I/71qZy8c7QwL._AC_UY218_.jpg",
+//   },
+//   {
+//     id: 3,
+//     name: "Pixel 8",
+//     category: "Phones",
+//     price: 799,
+//     image: "https://m.media-amazon.com/images/I/81Qw5Zl+JwL._AC_UY218_.jpg",
+//   },
+//   {
+//     id: 4,
+//     name: "MacBook Pro",
+//     category: "Laptops",
+//     price: 1999,
+//     image: "https://m.media-amazon.com/images/I/71an9eiBxpL._AC_UY218_.jpg",
+//   },
+//   {
+//     id: 5,
+//     name: "Dell XPS 13",
+//     category: "Laptops",
+//     price: 1499,
+//     image: "https://m.media-amazon.com/images/I/71w4pP5nQWL._AC_UY218_.jpg",
+//   },
+//   {
+//     id: 6,
+//     name: "HP Spectre x360",
+//     category: "Laptops",
+//     price: 1399,
+//     image: "https://m.media-amazon.com/images/I/71w4pP5nQWL._AC_UY218_.jpg",
+//   },
+//   {
+//     id: 7,
+//     name: "Phone Case",
+//     category: "Phone Accessories",
+//     price: 29,
+//     image: "https://m.media-amazon.com/images/I/61ZbF1V+QwL._AC_UY218_.jpg",
+//   },
+//   {
+//     id: 8,
+//     name: "Wireless Charger",
+//     category: "Phone Accessories",
+//     price: 49,
+//     image: "https://m.media-amazon.com/images/I/61ZbF1V+QwL._AC_UY218_.jpg",
+//   },
+//   {
+//     id: 9,
+//     name: "Screen Protector",
+//     category: "Phone Accessories",
+//     price: 19,
+//     image: "https://m.media-amazon.com/images/I/61ZbF1V+QwL._AC_UY218_.jpg",
+//   },
+// ];
 
-const categories = ["Phones", "Laptops", "Phone Accessories"];
+// const categories = ["Phones", "Laptops", "Phone Accessories"];
 
 export default function Products() {
   const [selectedCategories, setSelectedCategories] = useState([]);
   const navigate = useNavigate();
+
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ["products"],
+    queryFn: fetchProducts,
+    staleTime: 10 * 60 * 1000, // cache for 10 minutes
+  });
+
+  const ProductsData = data?.data.data || [];
+  const categories = Array.from(new Set(ProductsData.map((l) => l.category)));
 
   const handleCategoryChange = (category) => {
     setSelectedCategories((prev) =>
@@ -84,8 +96,33 @@ export default function Products() {
 
   const filteredProducts =
     selectedCategories.length === 0
-      ? MOCK
-      : MOCK.filter((product) => selectedCategories.includes(product.category));
+      ? ProductsData
+      : ProductsData.filter((product) =>
+          selectedCategories.includes(product.category)
+        );
+
+  const formatCategory = (category) => {
+    if (category === "laptop_accessory") return "Laptop Accessory";
+    if (category === "phone_accessory") return "Phone Accessory";
+    // Capitalize first letter for other categories
+    return category.charAt(0).toUpperCase() + category.slice(1);
+  };
+
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center gap-8 p-4 md:p-8 bg-gray-50 min-h-screen">
+        <img src={Loader} alt="loader gif" className="w-10 h-10" />
+      </div>
+    );
+  }
+
+  if (isError) {
+    return (
+      <div className="flex justify-center items-center gap-8 p-4 md:p-8 bg-gray-50 min-h-screen">
+        <p>Failed to load laptops. Please try again later.</p>
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-wrap md:flex-nowrap gap-8 p-4 md:p-8 bg-gray-50 min-h-screen">
@@ -104,7 +141,7 @@ export default function Products() {
                 onChange={() => handleCategoryChange(category)}
                 className="accent-blue-600 w-4 h-4"
               />
-              <span>{category}</span>
+              <span>{formatCategory(category)}</span>
             </label>
           ))}
         </div>
@@ -119,7 +156,7 @@ export default function Products() {
               onClick={() => navigate(`/products/${filteredProduct.id}`)}
             >
               <img
-                src={filteredProduct.image}
+                src={filteredProduct.photos[0]}
                 alt={filteredProduct.name}
                 className="w-full h-44 object-contain mb-4 rounded"
               />
@@ -128,7 +165,7 @@ export default function Products() {
               </h4>
               <p className="text-gray-500 mb-1">{filteredProduct.brand}</p>
               <p className="font-bold text-blue-600 text-xl">
-                ${filteredProduct.price}
+                ₦{Number(filteredProduct.price).toLocaleString()}
               </p>
             </div>
           ))}
