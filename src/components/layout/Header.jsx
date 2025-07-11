@@ -27,11 +27,13 @@ export default function Header() {
       : [];
 
   const navItems = [
+    { to: "/", label: "Home" },
     { to: "/products", label: "Products" },
     { to: "/laptops", label: "Laptops" },
     { to: "/accessories", label: "Laptop Accessories" },
+    { to: "/accessories", label: "Phone Accessories" },
     { to: "/phones", label: "Phones" },
-    { to: "/repairs", label: "Repair Services" },
+    // { to: "/repairs", label: "Repair Services" },
   ];
 
   return (
@@ -98,7 +100,7 @@ export default function Header() {
         </div>
         {/* Second Row: Menu Items - always visible, horizontally scrollable on mobile */}
         <div
-          className="w-full flex flex-row md:space-x-4  md:items-center bg-white z-50 transition-all duration-300 overflow-x-auto scrollbar-hide"
+          className="w-full flex flex-row md:space-x-1  md:items-center bg-white z-50 transition-all duration-300 overflow-x-auto scrollbar-hide"
           style={{ WebkitOverflowScrolling: "touch" }}
         >
           {navItems.map((item) => (
@@ -109,7 +111,7 @@ export default function Header() {
                 (isActive
                   ? "text-blue-600 font-semibold underline "
                   : "text-gray-800 hover:text-blue-600 ") +
-                "text-lg px-3 py-2 whitespace-nowrap"
+                "text-[14px] px-1 py-2 whitespace-nowrap "
               }
             >
               {item.label}

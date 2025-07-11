@@ -78,7 +78,7 @@ const Accessories = () => {
               className="border border-gray-200 rounded-lg bg-white shadow hover:shadow-lg transition-shadow p-4 flex flex-col items-center text-center cursor-pointer"
             >
               <img
-                src={accessories.photos[1]}
+                src={accessories.photos[0]}
                 alt={accessories.name}
                 className="w-full h-44 object-contain mb-4 rounded"
               />
