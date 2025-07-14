@@ -31,7 +31,7 @@ export default function Header() {
     { to: "/products", label: "Products" },
     { to: "/laptops", label: "Laptops" },
     { to: "/accessories", label: "Laptop Accessories" },
-    { to: "/accessories", label: "Phone Accessories" },
+    { to: "/phone-accessories", label: "Phone Accessories" },
     { to: "/phones", label: "Phones" },
     // { to: "/repairs", label: "Repair Services" },
   ];
@@ -52,7 +52,7 @@ export default function Header() {
             </div>
           </NavLink>
           {/* Search Input */}
-          <div className="flex-1 flex flex-col items-center px-4 relative">
+          <div className="hidden flex-1 md:flex flex-col items-center px-4 relative">
             <input
               type="text"
               placeholder="Search products..."
@@ -98,9 +98,46 @@ export default function Header() {
             </span>
           </NavLink>
         </div>
+        <div className="md:hidden flex-1 flex flex-col w-full items-center relative">
+            <input
+              type="text"
+              placeholder="Search products..."
+              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+              value={search}
+              onChange={(e) => {
+                setSearch(e.target.value);
+                setShowDropdown(true);
+              }}
+              onFocus={() => setShowDropdown(true)}
+              onBlur={() => setTimeout(() => setShowDropdown(false), 150)}
+              autoComplete="off"
+            />
+            {showDropdown && filtered.length > 0 && (
+              <div className="absolute top-full left-0 w-full max-w-md bg-white border border-gray-200 rounded shadow z-500 mt-1 max-h-64 overflow-y-auto">
+                {filtered.map((product) => (
+                  <div
+                    key={product.id}
+                    className="px-4 py-2 hover:bg-blue-100 cursor-pointer flex items-center gap-2"
+                    onMouseDown={() => {
+                      setShowDropdown(false);
+                      setSearch("");
+                      navigate(`/products/${product.id}`);
+                    }}
+                  >
+                    <img
+                      src={product.photos?.[0] || product.image}
+                      alt={product.name}
+                      className="w-8 h-8 object-cover rounded"
+                    />
+                    <span>{product.name}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
         {/* Second Row: Menu Items - always visible, horizontally scrollable on mobile */}
         <div
-          className="w-full flex flex-row md:space-x-1  md:items-center bg-white z-50 transition-all duration-300 overflow-x-auto scrollbar-hide"
+          className="w-full flex flex-row space-x-4 md:space-x-1  md:items-center bg-white z-50 transition-all duration-300 overflow-x-auto scrollbar-hide"
           style={{ WebkitOverflowScrolling: "touch" }}
         >
           {navItems.map((item) => (

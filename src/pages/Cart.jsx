@@ -56,7 +56,11 @@ export default function Cart() {
                   <p>
                     ₦{item.price} x {item.qty}
                   </p>
-                  <p className="text-sm text-gray-500">{item.description}</p>
+                  <p className="text-sm text-gray-500">
+                    {item.description && item.description.length > 50
+                      ? item.description.slice(0, 50) + "..."
+                      : item.description}
+                  </p>
                 </div>
                 <button
                   className="ml-4 bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 cursor-pointer"

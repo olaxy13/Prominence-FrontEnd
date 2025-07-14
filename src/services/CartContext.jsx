@@ -22,7 +22,7 @@ export function CartProvider({ children }) {
     setCartItems((prev) => prev.filter((item) => item.id !== id));
   };
 
-  const cartCount = cartItems.reduce((sum, item) => sum + item.qty, 0);
+  const cartCount = cartItems.length;
 
   return (
     <CartContext.Provider
