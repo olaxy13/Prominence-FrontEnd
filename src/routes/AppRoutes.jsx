@@ -8,6 +8,7 @@ import Phones from "../pages/Phones";
 import Laptops from "../pages/Laptops";
 import Repairs from "../pages/Repairs";
 import Accessories from "../pages/Accessories";
+import PhoneAccessories from "../pages/PhoneAccessories";
 
 export default function AppRoutes() {
   return (
@@ -16,6 +17,7 @@ export default function AppRoutes() {
       <Route path="/products" element={<Products />} />
       <Route path="/phones" element={<Phones />} />
       <Route path="/accessories" element={<Accessories />} />
+      <Route path="/phone-accessories" element={<PhoneAccessories />} />
       <Route path="/laptops" element={<Laptops />} />
       <Route path="/repairs" element={<Repairs />} />
       <Route path="/products/:id" element={<ProductDetail />} />

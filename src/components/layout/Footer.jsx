@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="bg-black text-white border-t border-gray-800 text-xs py-12 mt-16">
+    <footer className="container bg-black text-white border-t border-gray-800 text-xs py-12 mt-16">
       <div className="max-w-6xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-left">
         <div>
           <h3 className="font-bold mb-3 text-base">Reach Us</h3>
@@ -20,12 +20,12 @@ export default function Footer() {
                 href="mailto:londontailor07@gmail.com"
                 className="hover:underline"
               >
-                londontailor07@gmail.com
+                prominencetelecoms@gmail.com
               </a>
             </li>
           </ul>
         </div>
-        <div>
+        {/* <div>
           <h3 className="font-bold mb-3 text-base">London Tailor</h3>
           <ul className="space-y-1">
             <li>
@@ -49,9 +49,9 @@ export default function Footer() {
               </a>
             </li>
           </ul>
-        </div>
+        </div> */}
         <div>
-          <h3 className="font-bold mb-3 text-base">Collections</h3>
+          <h3 className="font-bold mb-3 text-base">Services</h3>
           <ul className="space-y-1">
             <li>
               <a href="/product-category/selecta" className="hover:underline">
@@ -75,7 +75,7 @@ export default function Footer() {
             </li>
           </ul>
         </div>
-        <div>
+        {/* <div>
           <h3 className="font-bold mb-3 text-base">Quick Links</h3>
           <ul className="space-y-1">
             <li>
@@ -92,7 +92,7 @@ export default function Footer() {
             <li>Exchange & Cancellation</li>
             <li>Terms & Conditions</li>
           </ul>
-        </div>
+        </div> */}
       </div>
       <div className="mt-10 text-center text-gray-400 text-xs">
         © 2025 Prominence Telecoms. All Rights Reserved
