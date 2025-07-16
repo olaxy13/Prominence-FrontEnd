@@ -34,6 +34,7 @@ export default function Header() {
     { to: "/phone-accessories", label: "Phone Accessories" },
     { to: "/repairs", label: "Repair Services" },
     { to: "/phones", label: "Phones" },
+    { to: "/about", label: "About" },
   ];
 
   return (

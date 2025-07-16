@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import { fetchPhone } from "../services/data";
 import { useQuery } from "@tanstack/react-query";
+import Loader from '../assets/loader.gif'
 
-// Mock data for phones
 
 
 const Phones = () => {
@@ -31,6 +31,21 @@ const Phones = () => {
       ? phoneData
       : phoneData.filter((phone) => selectedBrands.includes(phone.brand));
 
+  if (isLoading) {
+      return (
+        <div className="flex justify-center items-center gap-8 p-4 md:p-8 bg-gray-50 min-h-screen">
+          <img src={Loader} alt="loader gif" className="w-10 h-10"/>
+        </div>
+      );
+    }
+  
+    if (isError) {
+      return (
+        <div className="flex justify-center items-center gap-8 p-4 md:p-8 bg-gray-50 min-h-screen">
+          <p>Failed to load accessories. Please try again later.</p>
+        </div>
+      );
+    }
   return (
     <div className="flex flex-wrap md:flex-nowrap gap-8 p-4 md:p-8 bg-gray-50 min-h-screen">
       {/* Sidebar Filters */}
