@@ -9,6 +9,7 @@ import Laptops from "../pages/Laptops";
 import Repairs from "../pages/Repairs";
 import Accessories from "../pages/Accessories";
 import PhoneAccessories from "../pages/PhoneAccessories";
+import NotFound from "../pages/NotFound";
 
 export default function AppRoutes() {
   return (
@@ -23,6 +24,7 @@ export default function AppRoutes() {
       <Route path="/products/:id" element={<ProductDetail />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/checkout" element={<Checkout />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }

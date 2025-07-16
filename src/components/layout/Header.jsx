@@ -32,8 +32,8 @@ export default function Header() {
     { to: "/laptops", label: "Laptops" },
     { to: "/accessories", label: "Laptop Accessories" },
     { to: "/phone-accessories", label: "Phone Accessories" },
+    { to: "/repairs", label: "Repair Services" },
     { to: "/phones", label: "Phones" },
-    // { to: "/repairs", label: "Repair Services" },
   ];
 
   return (
@@ -98,7 +98,7 @@ export default function Header() {
             </span>
           </NavLink>
         </div>
-        <div className="md:hidden flex-1 flex flex-col w-full items-center relative">
+        <div className="md:hidden mb-4 flex-1 flex flex-col w-full items-center relative">
             <input
               type="text"
               placeholder="Search products..."
