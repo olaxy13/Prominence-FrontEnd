@@ -22,7 +22,7 @@ export default function ProductDetail() {
 
   const product = data?.data?.data;
 
-  // Set default main image when product loads
+
   useEffect(() => {
     if (product?.photos?.length) {
       setMainImg(product.photos[0]);
