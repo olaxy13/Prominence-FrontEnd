@@ -50,12 +50,12 @@ export default function Home() {
         {accessoriesLoading ? <img src={Loader} alt="loading spinner" className="block mx-auto w-10 h-10"/>:<ProductGrid products={getRandomFour(accessoriesData?.data)} loading={accessoriesLoading} />}
       </div>
       <div>
-        <h2 className="text-2xl font-semibold mb-4 p-4">Phone Accessories</h2>
-        {phoneAccessoryLoading ? <img src={Loader} alt="loading spinner" className="block mx-auto w-10 h-10"/>:<ProductGrid products={getRandomFour(phoneAccessoryData?.data)} loading={phoneAccessoryLoading} />}
-      </div>
-      <div>
         <h2 className="text-2xl font-semibold mb-4 p-4">Phones</h2>
         {phoneLoading ? <img src={Loader} alt="loading spinner" className="block mx-auto w-10 h-10"/>:<ProductGrid products={getRandomFour(phoneData?.data)} loading={phoneLoading} />}
+      </div>
+      <div>
+        <h2 className="text-2xl font-semibold mb-4 p-4">Phone Accessories</h2>
+        {phoneAccessoryLoading ? <img src={Loader} alt="loading spinner" className="block mx-auto w-10 h-10"/>:<ProductGrid products={getRandomFour(phoneAccessoryData?.data)} loading={phoneAccessoryLoading} />}
       </div>
     </div>
   );
