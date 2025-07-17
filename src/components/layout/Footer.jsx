@@ -34,13 +34,13 @@ export default function Footer() {
             </li>
             <li>
               <a
-                href="https://www.instagram.com/prominencetelecom/"
+                href="https://www.instagram.com/prominence_telecoms?igsh=MXdreWZvczdyYWY2MA=="
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 hover:underline"
               >
                 <FaInstagram className="w-4 h-4 text-pink-500" />
-                prominencetelecom
+                prominence_telecoms
               </a>
             </li>
           </ul>
@@ -82,11 +82,13 @@ export default function Footer() {
           </ul>
         </div>
         <div>
-          <Link to='about' className="font-bold mb-3 text-base">About us</Link>
+          <Link to="about" className="font-bold mb-3 text-base">
+            About us
+          </Link>
         </div>
       </div>
       <div className="mt-10 text-center text-gray-400 text-xs">
-        © 2025 Prominence Telecoms. All Rights Reserved
+        © {new Date().getFullYear()} Prominence Telecoms. All Rights Reserved
       </div>
     </footer>
   );

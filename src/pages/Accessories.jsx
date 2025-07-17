@@ -15,6 +15,7 @@ const Accessories = () => {
   });
 
   const laptopAccessoriesData = data?.data || [];
+  console.log(laptopAccessoriesData)
   const brands = Array.from(new Set(laptopAccessoriesData.map((l) => l.brand)));
 
   const handleBrandChange = (brand) => {

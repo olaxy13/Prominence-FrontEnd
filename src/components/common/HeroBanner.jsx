@@ -6,33 +6,33 @@ const slides = [
     image:
       "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1200&q=80",
     title: "Phones",
-    message: "Discover the latest in modern fashion",
-    button: "Shop Now",
-    link: "/products",
+    message: "Flagship feel, friendly price",
+    button: "Shop Phones",
+    link: "/phones",
   },
   {
     image:
       "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
     title: "Laptops",
-    message: "Bright, bold, and beautiful styles for summer.",
-    button: "Explore Summer",
-    link: "/products",
+    message: "Smart. Sleek. Affordable",
+    button: "Explore Laptops",
+    link: "/laptops",
   },
   {
     image:
       "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=1200&q=80",
     title: "Accessories",
-    message: "Elevate your wardrobe with timeless pieces.",
-    button: "View Classics",
-    link: "/products",
+    message: "All you want. In your hand",
+    button: "Shop Accessories",
+    link: "/accessories",
   },
   {
     image:
       "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1200&q=80",
     title: "Repairs",
-    message: "Special deals on select items. Limited time only!",
-    button: "See Offers",
-    link: "/products",
+    message: "Broken? We make it better.",
+    button: "Book a Repair",
+    link: "/repairs",
   },
 ];
 
