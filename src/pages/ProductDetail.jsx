@@ -22,7 +22,6 @@ export default function ProductDetail() {
 
   const product = data?.data?.data;
 
-
   useEffect(() => {
     if (product?.photos?.length) {
       setMainImg(product.photos[0]);
@@ -97,11 +96,17 @@ export default function ProductDetail() {
           </div>
           <div className="mt-1">
             <span className="font-semibold">Specifications:</span>
-            <p>{product?.specifications || "N/A"}</p>
+            <p
+              dangerouslySetInnerHTML={{
+                __html: product?.specifications || "N/A",
+              }}
+            />
           </div>
           <div className="mt-4">
             <span className="font-semibold">Description:</span>
-            <p>{product?.description}</p>
+            <p
+              dangerouslySetInnerHTML={{ __html: product?.description || "" }}
+            />
           </div>
           <div className="mt-4 flex items-center gap-2">
             <label>Qty:</label>
