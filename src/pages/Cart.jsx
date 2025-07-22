@@ -44,14 +44,14 @@ export default function Cart() {
             {cartItems.map((item) => (
               <li
                 key={item.id}
-                className="border border-gray-300 p-4 rounded flex items-center gap-4"
+                className="cart-list-item border border-gray-300 p-4 rounded flex items-center gap-4"
               >
                 <img
                   src={item.photos[0]}
                   alt={item.name}
                   className="w-20 h-20 object-cover rounded"
                 />
-                <div className="flex-1">
+                <div className="cart-details flex-1">
                   <h2 className="font-bold">{item.name}</h2>
                   <p>
                     ₦{item.price} x {item.qty}
@@ -63,7 +63,7 @@ export default function Cart() {
                   </p>
                 </div>
                 <button
-                  className="ml-4 bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 cursor-pointer"
+                  className="cart-remove-btn ml-4 bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 cursor-pointer"
                   onClick={() => removeFromCart(item.id)}
                 >
                   Remove
