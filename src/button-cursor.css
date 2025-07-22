@@ -1,0 +1,4 @@
+/* Add cursor pointer to all buttons globally */
+button {
+  cursor: pointer;
+}

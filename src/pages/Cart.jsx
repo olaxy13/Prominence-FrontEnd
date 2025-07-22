@@ -23,7 +23,7 @@ export default function Cart() {
     const fullMessage = `Hello, I want to order the following items:%0A%0A${encodeURIComponent(
       message
     )}%0A%0ATotal: ₦${total}`;
-    const whatsappUrl = `https://wa.me/?text=${fullMessage}`;
+    const whatsappUrl = `https://wa.me/2348107074738?text=${fullMessage}`;
     window.open(whatsappUrl, "_blank");
   };
 
