@@ -13,6 +13,14 @@ export default function ProductGrid({ products }) {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
+  if (!products || products.length === 0) {
+    return (
+      <div className="w-full text-center text-gray-500 py-8">
+        No items found.
+      </div>
+    );
+  }
+
   if (isMobile) {
     return (
       <div className="p-2">
