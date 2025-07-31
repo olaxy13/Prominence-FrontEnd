@@ -1,12 +1,11 @@
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
 
-
 const slides = [
   {
     image:
       // "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1200&q=80",
-      'https://res.cloudinary.com/dwu1klroh/image/upload/v1753778675/Slidar%20for%20PROMINENCE/phone_jrfq8e.jpg',
+      "https://res.cloudinary.com/dwu1klroh/image/upload/v1753778675/Slidar%20for%20PROMINENCE/phone_jrfq8e.jpg",
     title: "Phones",
     message: "Flagship feel, friendly price",
     button: "Shop Phones",
@@ -15,7 +14,7 @@ const slides = [
   {
     image:
       // "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
-      'https://res.cloudinary.com/dwu1klroh/image/upload/v1753778638/Slidar%20for%20PROMINENCE/laptop_excw2k.jpg',
+      "https://res.cloudinary.com/dwu1klroh/image/upload/v1753778638/Slidar%20for%20PROMINENCE/laptop_excw2k.jpg",
     title: "Laptops",
     message: "Smart. Sleek. Affordable",
     button: "Explore Laptops",
@@ -24,7 +23,7 @@ const slides = [
   {
     image:
       // "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=1200&q=80",
-      'https://res.cloudinary.com/dwu1klroh/image/upload/v1753778013/Slidar%20for%20PROMINENCE/accessory_w41jto.webp',
+      "https://res.cloudinary.com/dwu1klroh/image/upload/v1753778013/Slidar%20for%20PROMINENCE/accessory_w41jto.webp",
     title: "Accessories",
     message: "All you want. In your hand",
     button: "Shop Accessories",
@@ -33,7 +32,7 @@ const slides = [
   {
     image:
       // "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1200&q=80",
-      'https://res.cloudinary.com/dwu1klroh/image/upload/v1753778090/Slidar%20for%20PROMINENCE/repairs_cddbzo.jpg',
+      "https://res.cloudinary.com/dwu1klroh/image/upload/v1753778090/Slidar%20for%20PROMINENCE/repairs_cddbzo.jpg",
     title: "Repairs",
     message: "Broken? We make it better.",
     button: "Book a Repair",
@@ -46,10 +45,12 @@ export default function HeroBanner() {
     <div className="relative w-full mb-12 p-4">
       <Splide
         options={{
-          type: "loop",
+          type: "fade",
+          rewind: true,
           autoplay: true,
           interval: 5000,
           speed: 1200,
+          easing: "cubic-bezier(0.77, 0, 0.175, 1)",
           pauseOnHover: false,
           pauseOnFocus: false,
           arrows: false,
